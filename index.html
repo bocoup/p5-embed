@@ -1,5 +1,16 @@
 <head> </head>
 
 <body>
-  <script type="module" src="out/bundle.js"></script>
+  <div id="editor">some text</div>
+  <script src="vend/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script
+    src="vend/ace/mode-javascript.js"
+    type="text/javascript"
+    charset="utf-8"
+  ></script>
+  <script>
+    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    var editor = ace.edit("editor");
+    editor.session.setMode(new JavaScriptMode());
+  </script>
 </body>
