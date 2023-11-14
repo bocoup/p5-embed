@@ -1,0 +1,25 @@
+{
+  "name": "p5-embed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@codemirror/commands": "^6.3.0",
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@codemirror/state": "^6.3.1",
+    "@codemirror/view": "^6.22.0",
+    "codemirror": "^6.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.4.1"
+  }
+}
