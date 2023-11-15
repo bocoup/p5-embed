@@ -1,33 +1,23 @@
-import { EditorView, basicSetup } from "codemirror";
-import { javascript } from "@codemirror/lang-javascript";
+import Prism from "prismjs";
 
-let view = new EditorView({
-  extensions: [basicSetup, javascript()],
-  parent: document.body,
-});
-view.dispatch({
-  changes: {
-    from: 0,
-    insert: `
-    let sketch = function (p) {
-      let x = 100;
-      let y = 100;
+const codeString = `
+let sketch = function (p) {
+  let x = 100;
+  let y = 100;
 
-      p.setup = function () {
-        p.createCanvas(700, 410);
-      };
+  p.setup = function () {
+    p.createCanvas(700, 410);
+  };
 
-      p.draw = function () {
-        p.background(0);
-        p.fill(255);
-        p.rect(x, y, 50, 50);
-      };
-    };
+  p.draw = function () {
+    p.background(0);
+    p.fill(255);
+    p.rect(x, y, 50, 50);
+  };
+};
 
-    let myp5 = new p5(sketch);
-    `,
-  },
-});
+let myp5 = new p5(sketch);
+`;
 
 // taken from https://github.com/codemirror/website/blob/master/site/try/try.ts
 function run() {
@@ -40,7 +30,7 @@ function run() {
     "allow-scripts allow-popups allow-modals allow-forms"
   );
   frame.src = "sandbox.html";
-  let code = view.state.doc.toString();
+  let code = document.querySelector("#code").innerHTML;
   frame.onload = () => {
     frame.contentWindow.postMessage({ type: "load", code: code }, "*");
   };
@@ -52,6 +42,12 @@ function setup() {
   window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
     document.querySelector("#run").addEventListener("click", run);
+    document.querySelector("#code").textContent = codeString;
+    document.querySelector("#textarea").innerHTML = Prism.highlight(
+      codeString,
+      Prism.languages.javascript,
+      "javascript"
+    );
   });
   console.log("hi");
 }
