@@ -3,17 +3,17 @@
   <head>
     <title>p5.js Embed Prototype</title>
     <link rel="stylesheet" href="vend/prism/prism.css" />
-    <link rel="stylesheet" href="vend/prism-live/prism-live.css" />
-    <script src="vend/prism/prism.js"></script>
-    <script src="vend/prism-live/prism-live.js"></script>
-    <script src="vend/prism-live/prism-live-markup.js"></script>
-    <script src="vend/prism-live/prism-live-css.js"></script>
-    <script src="vend/prism-live/prism-live-javascript.js"></script>
+    <script src="vend/bliss/bliss.shy.min.js" defer></script>
+    <script src="vend/prism/prism.js" defer></script>
+    <script
+      src="vend/prism-live/js/prism-live.js?load=javascript"
+      defer
+    ></script>
+    <script type="module" src="out/bundle.js" defer></script>
   </head>
   <body>
     <h1>p5.js Embed Prototype</h1>
     <button id="run">Run</button>
     <textarea class="prism-live language-js" id="code"></textarea>
-    <script type="module" src="out/bundle.js" defer></script>
   </body>
 </html>
