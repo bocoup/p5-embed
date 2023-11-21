@@ -1,5 +1,3 @@
-import Prism from "prismjs";
-
 const codeString = `
 let sketch = function (p) {
   let x = 100;
@@ -43,11 +41,6 @@ function setup() {
     console.log("page is fully loaded");
     document.querySelector("#run").addEventListener("click", run);
     document.querySelector("#code").textContent = codeString;
-    document.querySelector("#textarea").innerHTML = Prism.highlight(
-      codeString,
-      Prism.languages.javascript,
-      "javascript"
-    );
   });
   console.log("hi");
 }

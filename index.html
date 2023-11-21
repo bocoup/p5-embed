@@ -1,23 +1,19 @@
-<head> </head>
-
-<body>
-  <link href="vend/prism.css" rel="stylesheet" />
-  <script type="module" src="out/bundle.js"></script>
-  <button id="run">Run</button>
-  <h2>
-    we can make a code element editable, but highlighting doesn't re-apply
-    automatically
-  </h2>
-  <pre>
-    <code id="code" class="lang-javascript" contenteditable>
-      <!-- <textarea > -->
-        // waiting
-      <!-- </textarea> -->
-    </code>
-  </pre>
-  <h2>
-    here's an attempt to manually highlight string and put it into a text area
-  </h2>
-  <textarea id="textarea" cols="30" rows="10"></textarea>
-  <h2>an attempt with a div</h2>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>p5.js Embed Prototype</title>
+    <link rel="stylesheet" href="vend/prism/prism.css" />
+    <link rel="stylesheet" href="vend/prism-live/prism-live.css" />
+    <script src="vend/prism/prism.js"></script>
+    <script src="vend/prism-live/prism-live.js"></script>
+    <script src="vend/prism-live/prism-live-markup.js"></script>
+    <script src="vend/prism-live/prism-live-css.js"></script>
+    <script src="vend/prism-live/prism-live-javascript.js"></script>
+  </head>
+  <body>
+    <h1>p5.js Embed Prototype</h1>
+    <button id="run">Run</button>
+    <textarea class="prism-live language-js" id="code"></textarea>
+    <script type="module" src="out/bundle.js" defer></script>
+  </body>
+</html>
