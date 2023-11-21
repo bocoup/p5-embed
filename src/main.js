@@ -1,3 +1,8 @@
+import "../vend/bliss/bliss.shy.min";
+import "../vend/prism/prism";
+import "../vend/prism-live/prism-live";
+import "../vend/prism-live/prism-live-javascript";
+
 const codeString = `
 let sketch = function (p) {
   let x = 100;
