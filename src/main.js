@@ -1,18 +1,12 @@
-// import { createEditor } from "prism-code-editor";
-// import { cursorPosition } from "prism-code-editor/cursor";
-// import { copyButton } from "prism-code-editor/copy-button";
-import {
-  minimalEditor,
-  basicEditor,
-  fullEditor,
-} from "prism-code-editor/setups";
-// import "prism-code-editor/languages/clike";
+import { createEditor } from "prism-code-editor";
+import { cursorPosition } from "prism-code-editor/cursor";
+import { copyButton } from "prism-code-editor/copy-button";
 import "prism-code-editor/grammars/javascript";
 // import "prism-code-editor/grammars/js-extras";
 
-// import "prism-code-editor/layout.css";
-// import "prism-code-editor/scrollbar.css";
-// import "prism-code-editor/themes/github-dark.css";
+import "prism-code-editor/layout.css";
+import "prism-code-editor/scrollbar.css";
+import "prism-code-editor/themes/github-dark.css";
 
 const codeString = `
 let sketch = function (p) {
@@ -32,14 +26,12 @@ let sketch = function (p) {
 
 let myp5 = new p5(sketch);
 `;
-const editor = minimalEditor(
+
+const editor = createEditor(
   "#editor",
-  {
-    language: "javascript",
-    value: codeString,
-    theme: "github-dark",
-  },
-  () => console.log("ready")
+  { language: "javascript", value: codeString, theme: "github-dark" },
+  copyButton(),
+  cursorPosition()
 );
 
 // taken from https://github.com/codemirror/website/blob/master/site/try/try.ts
@@ -53,7 +45,7 @@ function run() {
     "allow-scripts allow-popups allow-modals allow-forms"
   );
   frame.src = "sandbox.html";
-  let code = document.querySelector("#code").innerHTML;
+  let code = editor.value;
   frame.onload = () => {
     frame.contentWindow.postMessage({ type: "load", code: code }, "*");
   };
@@ -64,13 +56,6 @@ function run() {
 function setup() {
   window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
-    // const editor = createEditor(
-    //   "#editor",
-    //   { language: "javascript", value: codeString, theme: "github-dark" },
-    //   copyButton(),
-    //   cursorPosition()
-    // );
-
     document.querySelector("#run").addEventListener("click", run);
   });
   console.log("hi");
