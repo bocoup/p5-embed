@@ -1,21 +1,8 @@
+<!DOCTYPE html>
 <head> </head>
-
 <body>
-  <link href="vend/prism.css" rel="stylesheet" />
+  <link rel="stylesheet" href="out/bundle.css" />
   <script type="module" src="out/bundle.js"></script>
   <button id="run">Run</button>
-  <h2>
-    we can make a code element editable, but highlighting doesn't re-apply
-    automatically
-  </h2>
-  <pre>
-    <code id="code" class="lang-javascript" contenteditable>
-      // waiting
-    </code>
-  </pre>
-  <h2>
-    here's an attempt to manually highlight string and put it into a text area
-  </h2>
-  <textarea id="textarea" cols="30" rows="10"></textarea>
-  <h2>an attempt with a div</h2>
+  <div id="editor"></div>
 </body>
