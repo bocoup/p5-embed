@@ -51,7 +51,7 @@ function run() {
   frame.srcdoc = iFrameHtml;
   let code = editor.value;
   frame.onload = () => {
-    frame.contentWindow.postMessage({ type: "load", code: code }, "*");
+    frame.contentWindow?.postMessage({ type: "load", code: code }, "*");
   };
   document.body.appendChild(frame);
   return true;
@@ -60,13 +60,12 @@ function run() {
 function setup() {
   window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
-    document.querySelector("#run").addEventListener("click", run);
+    document.querySelector("#run")?.addEventListener("click", run);
   });
   console.log("hi");
 }
 
 setup();
-render(
-  <CodeEmbed name="John Doe" />,
-  document.querySelector("#component-holder")
-);
+const container = document.querySelector("#component-holder");
+if (container) render(<CodeEmbed />, container);
+else console.error('no container found');
