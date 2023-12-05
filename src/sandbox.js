@@ -9,8 +9,8 @@ export default `<!DOCTYPE html>
 
     (() => {
       addEventListener("message", (e) => {
-        if (e.origin != document.location.origin) return;
         if (e.data.type == "load") {
+          console.log("received code");
           let tag = document.createElement("script");
           tag.type = "module";
           tag.textContent = e.data.code;
