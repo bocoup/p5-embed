@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 // @ts-expect-error
 import { createEditor, PrismEditor } from "prism-code-editor";
 // @ts-expect-error
@@ -50,8 +50,7 @@ export const CodeEmbed = (props: CodeEmbedProps) => {
   }, []);
 
   return (
-    <div>
-      <h1>Usage with Preact</h1>
+    <>
       <div ref={divRef} />
       {props.previewable ? (
         <>
@@ -66,7 +65,7 @@ export const CodeEmbed = (props: CodeEmbedProps) => {
           <CodeFrame code={codeString} />
         </>
       ) : null}
-    </div>
+    </>
   );
 };
 
