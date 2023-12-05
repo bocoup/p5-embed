@@ -8,6 +8,8 @@ import "prism-code-editor/layout.css";
 import "prism-code-editor/scrollbar.css";
 import "prism-code-editor/themes/github-dark.css";
 
+import iFrameHtml from "./sandbox";
+
 const codeString = `
 let sketch = function (p) {
   let x = 100;
@@ -44,7 +46,7 @@ function run() {
     "sandbox",
     "allow-scripts allow-popups allow-modals allow-forms"
   );
-  frame.src = "sandbox.html";
+  frame.srcdoc = iFrameHtml;
   let code = editor.value;
   frame.onload = () => {
     frame.contentWindow.postMessage({ type: "load", code: code }, "*");
