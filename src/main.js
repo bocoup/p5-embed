@@ -8,7 +8,9 @@ import "prism-code-editor/layout.css";
 import "prism-code-editor/scrollbar.css";
 import "prism-code-editor/themes/github-dark.css";
 
+import { render, h } from "preact";
 import iFrameHtml from "./sandbox";
+import { CodeEmbed } from "./component";
 
 const codeString = `
 let sketch = function (p) {
@@ -64,3 +66,7 @@ function setup() {
 }
 
 setup();
+render(
+  <CodeEmbed name="John Doe" />,
+  document.querySelector("#component-holder")
+);
