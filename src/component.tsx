@@ -1,9 +1,22 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useCallback, useState } from "preact/hooks";
+// @ts-expect-error
 import { createEditor, PrismEditor } from "prism-code-editor";
+// @ts-expect-error
 import { copyButton } from "prism-code-editor/copy-button";
+// @ts-expect-error
 import { matchBrackets } from "prism-code-editor/match-brackets";
+// @ts-expect-error
 import { indentGuides } from "prism-code-editor/guides";
 import "prism-code-editor/grammars/javascript";
+
+import { wrapJsInMarkup } from "./sandbox";
+
+const CodeFrame = (props: { code: string }) => (
+  <iframe
+    srcDoc={wrapJsInMarkup(props.code)}
+    sandbox="allow-scripts allow-popups allow-modals allow-forms"
+  />
+);
 
 interface CodeEmbedProps {
   initialValue?: string;
@@ -13,7 +26,8 @@ interface CodeEmbedProps {
 
 export const CodeEmbed = (props: CodeEmbedProps) => {
   const divRef = useRef<HTMLDivElement>(null);
-  const editorRef = useRef<PrismEditor>();
+  const editorRef = useRef<PrismEditor>(null);
+  const [codeString, setCodeString] = useState(props.initialValue ?? "");
 
   useEffect(() => {
     const editor = (editorRef.current = createEditor(
@@ -39,6 +53,19 @@ export const CodeEmbed = (props: CodeEmbedProps) => {
     <div>
       <h1>Usage with Preact</h1>
       <div ref={divRef} />
+      {props.previewable ? (
+        <>
+          <button
+            onClick={() => {
+              console.log("updating code");
+              setCodeString(editorRef.current!.value);
+            }}
+          >
+            Run Code
+          </button>
+          <CodeFrame code={codeString} />
+        </>
+      ) : null}
     </div>
   );
 };
