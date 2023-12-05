@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { createEditor, PrismEditor } from "prism-code-editor";
-// import { cursorPosition } from "prism-code-editor/cursor";
 import { copyButton } from "prism-code-editor/copy-button";
 import { matchBrackets } from "prism-code-editor/match-brackets";
 import { indentGuides } from "prism-code-editor/guides";
