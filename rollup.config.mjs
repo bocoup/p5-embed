@@ -1,9 +1,8 @@
-import { babel } from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import cssbundle from "rollup-plugin-css-bundle";
 import typescript from "@rollup/plugin-typescript";
+import sizes from "rollup-plugin-sizes";
 
 export default {
   input: "src/main.tsx",
@@ -11,6 +10,7 @@ export default {
     inlineDynamicImports: true,
     file: "out/bundle.js",
     format: "es",
+    compact: true,
   },
-  plugins: [typescript(), nodeResolve(), cssbundle(), terser()],
+  plugins: [typescript(), nodeResolve(), cssbundle(), terser(), sizes()],
 };

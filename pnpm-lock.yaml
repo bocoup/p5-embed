@@ -37,6 +37,9 @@ devDependencies:
   rollup-plugin-css-bundle:
     specifier: ^1.0.4
     version: 1.0.4
+  rollup-plugin-sizes:
+    specifier: ^1.0.6
+    version: 1.0.6(rollup@4.6.1)
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
@@ -648,6 +651,11 @@ packages:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
     dev: true
 
+  /filesize@9.0.11:
+    resolution: {integrity: sha512-gTAiTtI0STpKa5xesyTA9hA3LX4ga8sm2nWRcffEa1L/5vQwb4mj2MdzMkoHoGv4QzfDshQZuYscQSf8c4TKOA==}
+    engines: {node: '>= 0.4.0'}
+    dev: true
+
   /fs-extra@5.0.0:
     resolution: {integrity: sha512-66Pm4RYbjzdyeuqudYqhFiNBbCIuI9kgRqLPSHIlXHidW8NIQtVdkM1yeZ4lXwuhbTETv3EUGMNHAAw6hiundQ==}
     dependencies:
@@ -785,6 +793,10 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
+  /module-details-from-path@1.0.3:
+    resolution: {integrity: sha512-ySViT69/76t8VhE1xXHK6Ch4NcDd26gx0MzKXLO+F7NOtnqH68d9zF94nT8ZWSxXh8ELOERsnJO/sWt1xZYw5A==}
+    dev: true
+
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
@@ -842,6 +854,16 @@ packages:
     dependencies:
       fs-extra: 5.0.0
       rollup-pluginutils: 2.8.2
+    dev: true
+
+  /rollup-plugin-sizes@1.0.6(rollup@4.6.1):
+    resolution: {integrity: sha512-TQlfd2Ef+1BQjsDIuXyoBPAFFJfA9q4DXSCT5/jsUEtsyn99CzwGH98StQOg+sriq9+j8VgCxPO4yodMbvynPg==}
+    peerDependencies:
+      rollup: ^2 || ^3 || ^4
+    dependencies:
+      filesize: 9.0.11
+      module-details-from-path: 1.0.3
+      rollup: 4.6.1
     dev: true
 
   /rollup-pluginutils@2.8.2:
