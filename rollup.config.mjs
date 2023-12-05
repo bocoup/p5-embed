@@ -1,33 +1,16 @@
-import { babel } from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import cssbundle from "rollup-plugin-css-bundle";
+import typescript from "@rollup/plugin-typescript";
+import sizes from "rollup-plugin-sizes";
 
 export default {
-  input: "src/main.js",
+  input: "src/main.tsx",
   output: {
     inlineDynamicImports: true,
     file: "out/bundle.js",
     format: "es",
+    compact: true,
   },
-  plugins: [
-    nodeResolve({ extensions: [".js", ".jsx"] }),
-    babel({
-      babelHelpers: "bundled",
-      plugins: [
-        [
-          "@babel/plugin-transform-react-jsx",
-          {
-            pragma: "h",
-            pragmaFrag: "Fragment",
-          },
-        ],
-      ],
-      extensions: [".js", ".jsx"],
-    }),
-    commonjs(),
-    cssbundle(),
-    terser(),
-  ],
+  plugins: [typescript(), nodeResolve(), cssbundle(), terser(), sizes()],
 };
