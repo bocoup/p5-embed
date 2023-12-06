@@ -15,6 +15,7 @@ const CodeFrame = (props: { code: string }) => (
   <iframe
     srcDoc={wrapJsInMarkup(props.code)}
     sandbox="allow-scripts allow-popups allow-modals allow-forms"
+    aria-label="Code Preview"
   />
 );
 
