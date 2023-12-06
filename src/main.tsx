@@ -20,10 +20,20 @@ let sketch = function (p) {
 let myp5 = new p5(sketch);
 `;
 
+const App = (
+  <>
+    <h1>p5.js Code Embed Preact Component</h1>
+    <h2>Readonly</h2>
+    <CodeEmbed editable={false} previewable={false} initialValue={codeString} />
+    <h2>Readonly And Previewable</h2>
+    <CodeEmbed editable={false} previewable={true} initialValue={codeString} />
+    <h2>Editable</h2>
+    <CodeEmbed editable={true} previewable={false} initialValue={codeString} />
+    <h2>Editable And Previewable</h2>
+    <CodeEmbed editable={true} previewable={true} initialValue={codeString} />
+  </>
+);
+
 const container = document.querySelector("#component-holder");
-if (container)
-  render(
-    <CodeEmbed editable={true} previewable={true} initialValue={codeString} />,
-    container
-  );
+if (container) render(App, container);
 else console.error("no container found");
