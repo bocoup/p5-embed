@@ -16,6 +16,7 @@ const CodeFrame = (props: { code: string }) => (
     srcDoc={wrapJsInMarkup(props.code)}
     sandbox="allow-scripts allow-popups allow-modals allow-forms"
     aria-label="Code Preview"
+    title="Code Preview"
   />
 );
 
@@ -47,6 +48,8 @@ export const CodeEmbed = (props: CodeEmbedProps) => {
       indentGuides()
     ));
 
+    divRef.current!.querySelector("textarea")!.ariaLabel = "Code Editor";
+
     return editor.remove;
   }, []);
 
@@ -74,4 +77,4 @@ export const CodeEmbed = (props: CodeEmbedProps) => {
 import "prism-code-editor/layout.css";
 import "prism-code-editor/scrollbar.css";
 import "prism-code-editor/copy-button.css";
-import "prism-code-editor/themes/prism.css";
+import "prism-code-editor/themes/vs-code-light.css";

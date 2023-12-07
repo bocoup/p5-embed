@@ -16,6 +16,8 @@ $ pnpm serve
 
 Open `http://[::]:8000/test-site/` in a browser.
 
+Note that the `serve` script requires python. Alternative local server options also work.
+
 ## Source code
 
 The component code is at [src/component.tsx](./src/component.tsx).
