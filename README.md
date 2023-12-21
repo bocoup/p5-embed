@@ -1,3 +1,7 @@
+**Note: this prorotype is now integrated into https://github.com/bocoup/p5js-site-proto. See more info there.**
+
+---
+
 # p5-embed
 
 A prototype for a faster, more accessible p5.js code embed and preview component. This prototype has basic functionality and no styling outside of that needed for the code editor area itself.
